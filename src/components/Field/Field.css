@@ -1,16 +1,22 @@
-.dropdown-list label {
+.field label{
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
     font-weight: 600;
 }
 
-.dropdown-list select{
-    background-color: #FFF;
+.field input {
+    background-color: #FFFFFF;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
     width: 100%;
     border: none;
     font-size: 24px;
     padding: 24px;
     box-sizing: border-box;
+}
+
+.field-color input {
+    height: 50px;
+    padding: 5px 24px;
+
 }
