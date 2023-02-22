@@ -1,12 +1,10 @@
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart }from "react-icons/ai"
 import "./Employee.css"
 
-const Employee = ({name, position, image, favorite, backgroundColor, onDelete, onFavorite}) => {
-    console.log(" EMPLOYEE ")
-    console.log(favorite)
+const Employee = ({id, name, position, image, favorite, backgroundColor, onDelete, onFavorite}) => {   
 
     function atfavorite(){
-        onFavorite(name);        
+        onFavorite(id);        
     }
 
     const propsFavorite = {
@@ -19,7 +17,7 @@ const Employee = ({name, position, image, favorite, backgroundColor, onDelete, o
             <AiFillCloseCircle 
                 size={25} 
                 className="delete" 
-                onClick={ ()=> onDelete(name, position)}
+                onClick={ ()=> onDelete(id, name, position)}
             />
             <div className="header" style={{backgroundColor: backgroundColor}}>
                 <img src={image} alt={name} />

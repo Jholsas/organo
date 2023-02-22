@@ -11,55 +11,177 @@ function App() {
     {
       id: uuidv4(),
       name: 'Programmer',      
-      color: "#D9F7E9"
+      color: "#FFE15D"
     },
     {
       id: uuidv4(),
       name: 'Front-End',      
-      color: "#E8F8FF"
+      color: "#F49D1A"
     },
     {
       id: uuidv4(),
       name: 'Data Science',      
-      color: "#F0F8E2"
+      color: "#DC3535"
     },
     {
       id: uuidv4(),
       name: 'Devops',      
-      color: "#FDE7E8"
+      color: "#B01E68"
     },
     {
       id: uuidv4(),
       name: 'UX and Design',      
-      color: "#FAE9F5"
+      color: "#DB6EBF"
     },
     {
       id: uuidv4(),
       name: 'Mobile',      
-      color: "#FFF5D9"
+      color: "#FFBA05"
     },
     {
       id: uuidv4(),
       name: 'Innovation and Management',      
-      color: "#FFEEDF"
+      color: "#FF8A29"
     }
   ])
 
   const startLoad = [
     {
-      name: 'João Dos Santos Silva',
-      position: 'Developer',
+      id: uuidv4(),
+      name: 'JOAO SILVA',
+      position: 'DEVELOPER',
+      image: 'https://github.com/Jholsas.png',
+      team: teams[0].name,
+      favorite: true
+    },
+    {
+      id: uuidv4(),
+      name: 'FERNANDO MOLADO',
+      position: 'DEVELOPER',
+      image: 'https://github.com/fermolanoc.png',
+      team: teams[0].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'JOANY NERES',
+      position: 'DEVELOPER',
+      image: 'https://github.com/JoanyNeres.png',
+      team: teams[0].name,
+      favorite: false
+    },    
+    {
+      id: uuidv4(),
+      name: 'MONICA HILLMAN',
+      position: 'DEVELOPER',
+      image: 'https://github.com/MonicaHillman.png',
+      team: teams[0].name,
+      favorite: false
+    },    
+    {
+      id: uuidv4(),
+      name: 'JOAO SILVA',
+      position: 'DEVELOPER',
       image: 'https://github.com/Jholsas.png',
       team: teams[1].name,
+      favorite: true
+    },
+    {
+      id: uuidv4(),
+      name: 'FERNANDO MOLADO',
+      position: 'DEVELOPER',
+      image: 'https://github.com/fermolanoc.png',
+      team: teams[1].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'JOANY NERES',
+      position: 'DEVELOPER',
+      image: 'https://github.com/JoanyNeres.png',
+      team: teams[1].name,
+      favorite: false
+    },
+    { id: uuidv4(),
+      name: 'MONICA HILLMAN',
+      position: 'DEVELOPER',
+      image: 'https://github.com/MonicaHillman.png',
+      team: teams[1].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'JOAO SILVA',
+      position: 'DEVELOPER',
+      image: 'https://github.com/Jholsas.png',
+      team: teams[2].name,
+      favorite: true
+    },
+    {
+      id: uuidv4(),
+      name: 'FERNANDO MOLADO',
+      position: 'DEVELOPER',
+      image: 'https://github.com/fermolanoc.png',
+      team: teams[2].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'JOANY NERES',
+      position: 'DEVELOPER',
+      image: 'https://github.com/JoanyNeres.png',
+      team: teams[2].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'MONICA HILLMAN',
+      position: 'DEVELOPER',
+      image: 'https://github.com/MonicaHillman.png',
+      team: teams[2].name,
+      favorite: false
+    },
+
+    {
+      id: uuidv4(),
+      name: 'JOAO SILVA',
+      position: 'DEVELOPER',
+      image: 'https://github.com/Jholsas.png',
+      team: teams[3].name,
+      favorite: true
+    },
+    {
+      id: uuidv4(),
+      name: 'FERNANDO MOLADO',
+      position: 'DEVELOPER',
+      image: 'https://github.com/fermolanoc.png',
+      team: teams[3].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'JOANY NERES',
+      position: 'DEVELOPER',
+      image: 'https://github.com/JoanyNeres.png',
+      team: teams[3].name,
+      favorite: false
+    },
+    {
+      id: uuidv4(),
+      name: 'MONICA HILLMAN',
+      position: 'DEVELOPER',
+      image: 'https://github.com/MonicaHillman.png',
+      team: teams[3].name,
       favorite: false
     },
   ]
 
   const [employees, setEmployees] = useState(startLoad)
 
-  function deleteEmployee(name, position) {
-    setEmployees(employees.filter( employee => employee.name !== name ))
-    console.log("Deleting Employee:", name," ", position)
+  function deleteEmployee(id, name, position) {
+    
+    setEmployees(employees.filter( employee => employee.id !== id ))
+    console.log("Deleting Employee:", id, " ",name," ", position)
   }
 
   function changeTeamColor(color, name) {    
@@ -78,12 +200,12 @@ function App() {
     setTeams([ ...teams,{...newTeam}])
   }
 
-  function solveFavorite(name){    
+  function solveFavorite(id, name){    
     console.log(" SOLVE FAVORITE ")
-    console.log(name)
+    console.log(id, ' ',name)
 
     setEmployees(employees.map( employee =>{
-        if(employee.name === name) employee.favorite = !employee.favorite;            
+        if(employee.id === id) employee.favorite = !employee.favorite;            
         return employee;
     }))
   }
@@ -93,14 +215,14 @@ function App() {
       <Banner />
       <Form 
         createTeam={createTeam}
-        teams={teams.map(team => team.name)} 
+        teams={teams.map(team => team.name)}         
         onCreateEmployee={employee => setEmployees([...employees, employee])} 
       />            
       {teams.map(team =>        
         <Team
           onFavorite={solveFavorite}
           changeColor={changeTeamColor}
-          key={team.name}
+          key={team.id}
           name={team.name}          
           color={team.color}
           employees={employees.filter(employee => employee.team === team.name)}

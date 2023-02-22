@@ -3,11 +3,12 @@ import './Team.css'
 import hexToRgba from 'hex-to-rgba'
 
 const Team = (props)=>{
-    const cssTeam = {backgroundColor: hexToRgba(props.color,0.3)}
+    const cssTeam = {backgroundImage:'url(img/background.png)', backgroundColor: hexToRgba(props.color,0.3)}
     const cssBorder = {borderColor: props.color}        
         
     return(
-        props.employees.length > 0 &&
+        props.employees.length > 0 && 
+
         <section className = 'team' style={cssTeam}>
             <input  onChange = {event => props.changeColor( event.target.value, props.name )} 
                     value = {props.color} 
@@ -20,7 +21,8 @@ const Team = (props)=>{
                     return (
                         <Employee    
                             backgroundColor={props.color} 
-                            key={employee.name} 
+                            key={employee.id} 
+                            id={employee.id}
                             name={employee.name} 
                             position={employee.position} 
                             image={employee.image}        
