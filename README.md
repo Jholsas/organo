@@ -15,4 +15,4 @@ https://organo-seven-beta.vercel.app/
 * CSS
 
 ## Screenshots
-![Screenshot Desktop Version]([https://i.imgur.com/IaAC9oq.png](https://i.imgur.com/xBNucKY.png))
+![Screenshot Desktop Version](https://i.imgur.com/xBNucKY.png)
